@@ -110,9 +110,10 @@ function getInputEllipsoids() {
 //get the input triangles from the standard class URL
 function getInputTriangles() {
     const INPUT_TRIANGLES_URL = 
-        "https://ncsucgclass.github.io/prog1/triangles.json";
+        // "https://ncsucgclass.github.io/prog1/triangles.json";
+        "triangles1.json";
         
-    // load the triangles file
+    // load the triangles files
     var httpReq = new XMLHttpRequest(); // a new http request
     httpReq.open("GET",INPUT_TRIANGLES_URL,false); // init the request
     httpReq.send(null); // send the request
@@ -252,7 +253,7 @@ function drawRandPixelsInInputTriangles(context) {
         var x = 0; var y = 0; // pixel coord init
         var cx = 0; var cy = 0; // init center x and y coord
         var numTrianglePixels = 0; // init num pixels in triangle
-        var c = new Color(0,0,0,0); // init the triangle color
+        var c = new Color(0,255,0,255); // init the triangle color
         var n = inputTriangles.length; // the number of input files
         //console.log("number of files: " + n);
 
@@ -287,11 +288,11 @@ function drawRandPixelsInInputTriangles(context) {
             	numTrianglePixels *= PIXEL_DENSITY; // percentage of triangle area to render to pixels
             	numTrianglePixels = Math.round(numTrianglePixels);
             	// console.log("numTrianglePixels " + numTrianglePixels);
-            	c.change(
+            	/*c.change(
             		inputTriangles[f].material.diffuse[0]*255,
                 	inputTriangles[f].material.diffuse[1]*255,
                 	inputTriangles[f].material.diffuse[2]*255,
-                	255); // triangle diffuse color
+                	255); // triangle diffuse color*/
             	for (var p=0; p<numTrianglePixels; p++) {
                     var point; // on canvas plane
             		var triangleTest = 0;
